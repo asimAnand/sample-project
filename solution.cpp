@@ -1,8 +1,10 @@
 #include "Open3D/Open3D.h"
+#include <fstream>
 
 using namespace open3d;
 
-void geometry::TriangleMesh::DFSUtil(int vertex, bool visited[], list<int> connected_component){
+//Utility function to do a Depth First Search to get the connected components
+void geometry::TriangleMesh::DFSUtil(int vertex, bool visited[], list<int>& connected_component){
     //Mark the current vertex as visited and add to the list
     visited[vertex] = true;
     connected_component.push_back(vertex);
@@ -17,7 +19,6 @@ void geometry::TriangleMesh::DFSUtil(int vertex, bool visited[], list<int> conne
 list<list<int> > geometry::TriangleMesh::IdenticallyColoredConnectedComponents(){
     list<list<int> > connected_components_list;   //To store the list of connected components
     list<int> connected_component                 //To store one connected component
-    list<list<int> >::iterator list_itr;          //To sort the list of connected components
     int v;
 
     //Compute adjacency list for the given mesh
@@ -32,20 +33,24 @@ list<list<int> > geometry::TriangleMesh::IdenticallyColoredConnectedComponents()
         if (visited[v] == false){
             //All reachable vertices from v having the same color
             DFSUtil(v, visited, connected_component);
-	    connected_components_list.push_back;
+	    connected_components_list.push_back(connected_component); 
         }
         connected_component.clear();
     }
     
-    //Sort the list by smallest number in each list
+    /* Sort the list by smallest number in each list. Here each connected component in the
+     * list of connected components is already sorted ascendingly by the vertex because of
+     * the way we are traversing the adjacency list.
+     */ 
+    connected_components_list.sort();
 
     delete[] visited;
 
-    return connected_components;
+    return connected_components_list;
 }
 	      
 int main(){
-    geometry::TriangleMesh mesh;i
+    geometry::TriangleMesh mesh;
 
     //Read triangle mesh "test_mesh.ply"
     io::ReadTriangleMesh("test_mesh.ply", *mesh, true);
@@ -53,6 +58,18 @@ int main(){
     auto connected_components = mesh.IdenticallyColoredConnectedComponents();
 
     //Print connected_components in the specified format
-
+    ofstream outfile;
+    outfile.open("results.txt");
+    
+    //Loop over the nested list connected_components
+    list<list<int> >::iterator outer_list;
+    list<int>::iterator inner_list;
+    for (outer_list = connected_components.begin(); outer_list != connected_components.end(); outer_list++){
+        for (inner_list = (*outer_list).begin(); inner_list != (*outer_list).end(); inner_list++){
+	    outfile << *inner_list << " ";
+        }
+        outfile << std::endl;
+    }
+   
     return 0;
 }
