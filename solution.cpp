@@ -1,5 +1,6 @@
 #include "Open3D/Open3D.h"
 #include <fstream>
+#include <pybind11/pybind11.h>
 
 using namespace open3d;
 
@@ -47,6 +48,16 @@ list<list<int> > geometry::TriangleMesh::IdenticallyColoredConnectedComponents()
     delete[] visited;
 
     return connected_components_list;
+}
+
+/*
+ * This is the same pybind_trianglemesh present in 
+ * Open3D/src/Python/open3d_pybind/geometry/trianglemesh.cpp
+ */
+void pybind_trianglemesh(py::module &m){
+    m.def("IdenticallyColoredConnectedComponents", 
+          &geometry::TriangleMesh::IdenticallyColoredConnectedComponents,
+          "Function to compute identically-colored connected components in a triangle mesh");
 }
 	      
 int main(){
