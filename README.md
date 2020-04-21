@@ -13,8 +13,8 @@ Finds the identically colored connected components in a triangle mesh.
 ### Steps
 1. Compute the adjacency list from the read mesh using ComputeAdjacencyList().
 2. Initialize visited[vertices_.size()] := False, i.e. mark all vertices as not visited. 
-3. for v = 0 to vertices_.size() - 1:
-    * if visited[v] is false:
+3. *for* v = 0 *to* vertices_.size() - 1:
+    * *if* visited[v] is false:
         * DFSUtil(v, visited, connected_component)     [_To compute Depth First Search starting from vertex v_]
         * add connected_component to connected_components_list
     * clear connected_component
@@ -27,14 +27,14 @@ Performs the Depth First Search starting from vertex.
 ### Steps
 1. visited[vertex] = true i.e. Mark vertex v as visited.
 2. Add the vertex to the connected component list.
-3. for list_iterator = start of adjacency_list_[vertex] to end of adjacency_list_[vertex]:
-    * if \*list_iterator ((is not visited) and (has the same color as vertex)):
-        * run DFSUtil from \*list_operator
+3. *for* list_iterator = start of adjacency_list_[vertex] *to* end of adjacency_list_[vertex]:
+    * *if* \*list_iterator is not visited and has the same color as vertex:
+        * run DFSUtil from \*list_iterator
 
 ## Write output to file
 ### Steps
 1. Open a file "results.txt".
-2. for outer_list_iterator = start of connected_components to end of connected_components:
-    * for inner_list_iterator = start of *outer_list_iterator to end of *outer_list_iterator:
+2. *for* outer_list_iterator = start of connected_components *to* end of connected_components:
+    * *for* inner_list_iterator = start of *outer_list_iterator *to* end of *outer_list_iterator:
         *print vertices to "results.txt"
-    * print newline
+    * *print* newline
