@@ -36,5 +36,5 @@ Performs the Depth First Search starting from vertex.
 1. Open a file "results.txt".
 2. *for* outer_list_iterator = start of connected_components *to* end of connected_components:
     * *for* inner_list_iterator = start of *outer_list_iterator *to* end of *outer_list_iterator:
-        *print vertices to "results.txt"
+        * print vertices to "results.txt"
     * *print* newline
