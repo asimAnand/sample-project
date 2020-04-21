@@ -13,11 +13,11 @@ Finds the identically colored connected components in a triangle mesh
 ### Steps
 1. Compute the adjacency list from the read mesh using ComputeAdjacencyList().
 2. Initialize visited[vertices_.size()] := False, i.e. mark all vertices as not visited. 
-3. for v = 0 to vertices_.size() - 1:
-        1. if visited[v] is false:
-              1. DFSUtil(v, visited, connected_component)     [_To compute Depth First Search starting from vertex v_]
-              2. add connected_component to connected_components_list
-        2. clear connected_component
+* for v = 0 to vertices_.size() - 1:
+        * if visited[v] is false:
+              * DFSUtil(v, visited, connected_component)     [_To compute Depth First Search starting from vertex v_]
+              * add connected_component to connected_components_list
+        * clear connected_component
 4. connected_components_list.sort()                [_The inner list is already sorted because of the way we are parsing the adjacency list_]
 
 ## Algorithm 2 DFSUtil(int vertex, bool vertex[], list<int>& connected_component)
