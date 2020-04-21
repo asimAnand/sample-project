@@ -55,7 +55,7 @@ list<list<int> > geometry::TriangleMesh::IdenticallyColoredConnectedComponents()
  * Open3D/src/Python/open3d_pybind/geometry/trianglemesh.cpp
  */
 void pybind_trianglemesh(py::module &m){
-    m.def("IdenticallyColoredConnectedComponents", 
+    m.def("identically_colored_connected_components", 
           &geometry::TriangleMesh::IdenticallyColoredConnectedComponents,
           "Function to compute identically-colored connected components in a triangle mesh");
 }
