@@ -19,7 +19,7 @@ Finds the identically colored connected components in a triangle mesh.
         * add sorted connected_component to connected_components_list
     * clear connected_component
 4. Sort connected_components_list                
-5. Return connected_components_list
+5. Return connected_components_list        
 
 ## Algorithm 2: DFSUtil(int vertex, bool vertex[], list<int>& connected_component)
 ### Description
