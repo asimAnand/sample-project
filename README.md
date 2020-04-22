@@ -16,9 +16,9 @@ Finds the identically colored connected components in a triangle mesh.
 3. *for* v = 0 *to* vertices_.size() - 1:
     * *if* visited[v] is false:
         * DFSUtil(v, visited, connected_component)     [_To compute Depth First Search starting from vertex v_]
-        * add connected_component to connected_components_list
+        * add sorted connected_component to connected_components_list
     * clear connected_component
-4. connected_components_list.sort()                [_The inner list is already sorted because of the way we are parsing the adjacency list_]
+4. Sort connected_components_list                
 
 ## Algorithm 2: DFSUtil(int vertex, bool vertex[], list<int>& connected_component)
 ### Description
