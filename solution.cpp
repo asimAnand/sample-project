@@ -36,8 +36,8 @@ list<list<int> > geometry::TriangleMesh::IdenticallyColoredConnectedComponents()
             DFSUtil(v, visited, connected_component);
             // Add sorted connected component to the list of connected components
 	    connected_components_list.push_back(connected_component.sort()); 
+            connected_component.clear();
         }
-        connected_component.clear();
     }
     
     // Sort the list by smallest number in each connected component     

@@ -17,7 +17,7 @@ Finds the identically colored connected components in a triangle mesh.
     * *if* visited[v] is false:
         * DFSUtil(v, visited, connected_component)     [_To compute Depth First Search starting from vertex v_]
         * add sorted connected_component to connected_components_list
-    * clear connected_component
+        * clear connected_component
 4. Sort connected_components_list                
 5. Return connected_components_list        
 
