@@ -44,7 +44,7 @@ Performs the Depth First Search starting from vertex.
 ## Steps to build and run
 ### Build
 1. git clone --recursive https://github.com/intel-isl/Open3D
-2. Copy this file solutions.cpp to "Open3D/examples/Cpp/".
+2. Copy solutions.cpp to "Open3D/examples/Cpp/".
 3. Open "Open3D/examples/Cpp/CMakeLists.txt" and add "EXAMPLE_CPP(solution                  ${CMAKE_PROJECT_NAME})".
 4. cd Open3D
 5. mkdir build
