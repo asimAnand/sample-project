@@ -40,3 +40,19 @@ Performs the Depth First Search starting from vertex.
     * *for* inner_list_iterator = start of *outer_list_iterator *to* end of *outer_list_iterator:
         * *print* vertices to "results.txt"
     * *print* newline
+
+## Steps to build and run
+### Build
+1. git clone --recursive https://github.com/intel-isl/Open3D
+2. Copy this file solutions.cpp to "Open3D/examples/Cpp/".
+3. Open "Open3D/examples/Cpp/CMakeLists.txt" and add "EXAMPLE_CPP(solution                  ${CMAKE_PROJECT_NAME})".
+4. cd Open3D
+5. mkdir build
+6. cd build
+7. cmake ..
+8. make -j
+
+### Run
+1. cd Open3D/build/bin
+2. ./bin/examples/solution
+

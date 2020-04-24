@@ -1,7 +1,10 @@
+/*
+ * "Open3D/examples/Cpp/solution.cpp"
+ */
+
 #include "Open3D/Open3D.h"
 #include <fstream>
 #include <vector>
-//#include <pybind11/pybind11.h>
 
 using namespace open3d;
 
